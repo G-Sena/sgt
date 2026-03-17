@@ -11,19 +11,19 @@
         
             <div>
                 <label for='title'>Título</label>
-                <input class="w-full text-gray border border-gray-300 rounded p-2" type="text" name='title' value='{{old('title', $task->title)}}'>
+                <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" type="text" name='title' value='{{old('title', $task->title)}}' required>
             </div>
             <div>
                 <label for='description'>Descrição</label>
-                <input class="w-full text-gray border border-gray-300 rounded p-2" type="text" name='description' value='{{old('description', $task->description)}}'>
+                <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" type="text" name='description' value='{{old('description', $task->description)}}'>
             </div>
             <div>
                 <label for='due_date'>Prazo</label>
-                <input class="w-full text-gray border border-gray-300 rounded p-2" type="date" name='due_date' value='{{old('due_date', $task->due_date)}}'>
+                <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" type="date" name='due_date' value='{{old('due_date', $task->due_date)}}' required>
             </div>
             <div>
                 <label for='status'>Status</label>
-                <select class="mb-6 w-full text-gray border border-gray-300 rounded p-2" name='status'>
+                <select class="mb-6 w-full text-gray border-2 border-[E2121E] rounded p-2" name='status' required>
                     <option value="Pendente" {{ $task->status=='Pendente' ? 'selected' : '' }}>Pendente</option>
                     <option value="Em andamento" {{ $task->status=='Em andamento' ? 'selected' : '' }}>Em andamento</option>
                     <option value="Concluído" {{ $task->status=='Concluído' ? 'selected' : '' }}>Concluído</option>

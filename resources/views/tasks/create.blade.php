@@ -9,7 +9,7 @@
             @csrf
             <div>
                 <label for="title">Título</label>
-                <input class="w-full text-gray border border-gray-300 rounded p-2" class="w-full text-white border border-gray-300 rounded p-2" type=text name='title' id='title' value="{{old('title')}}" ></input>
+                <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" class="w-full text-white border border-gray-300 rounded p-2" type=text name='title' id='title' value="{{old('title')}}" required ></input>
                 @error('title')
                     <div class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
                         <div>{{$message}}</div>
@@ -18,11 +18,11 @@
             </div>
             <div>
                 <label for="description">Descrição</label>
-                <input class="w-full text-gray border border-gray-300 rounded p-2" type=text name='description' id='description' value="{{old('description')}}"></input>
+                <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" type=text name='description' id='description' value="{{old('description')}} "></input>
             </div>
             <div>
                 <label for="due_date">Prazo de entrega</label>
-                <input class="w-full text-gray border border-gray-300 rounded p-2" type=date name='due_date' id='due_date' value="{{old('due_date')}}"></input>
+                <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" type=date name='due_date' id='due_date' value="{{old('due_date')}}" required></input>
                 @error('due_date')
                     <div class="text-danger">
                         <div>{{$message}}</div>
@@ -32,7 +32,7 @@
             <div>
                 <label for="status">Status</label>
         
-                <select class="w-full text-gray border border-gray-300 rounded p-2" name='status' id='status'>
+                <select class="w-full text-gray border-2 border-[E2121E] rounded p-2" name='status' id='status' required>
                     <option value="Pendente">Pendente</option>
                     <option value="Em andamento">Em andamento</option>
                     <option value="Concluído">Concluído</option>
