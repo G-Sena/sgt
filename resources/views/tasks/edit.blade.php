@@ -24,9 +24,11 @@
             <div>
                 <label for='status'>Status</label>
                 <select class="mb-6 w-full text-gray border-2 border-[E2121E] rounded p-2" name='status' required>
-                    <option value="Pendente" {{ $task->status=='Pendente' ? 'selected' : '' }}>Pendente</option>
-                    <option value="Em andamento" {{ $task->status=='Em andamento' ? 'selected' : '' }}>Em andamento</option>
-                    <option value="Concluído" {{ $task->status=='Concluído' ? 'selected' : '' }}>Concluído</option>
+                    @foreach ( $statuses as $status)
+                        <option value="{{ $status->value }}" {{ old('status', $task->status) == $status->value ? 'selected' : '' }}>
+                            {{ $status->labelText() }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
         

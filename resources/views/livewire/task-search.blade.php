@@ -2,14 +2,18 @@
     <h1 class="text-2xl text-[E2121E] font-bold mb-4">Lista de Tarefas</h1>
 
     @if (session('success'))
-        <div class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
+        <div
+            x-data="{show: true}"
+            x-init="setTimeout(() => show = false, 5000)"
+            x-show="show"
+            class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
             {{ session('success') }}
         </div>
     @endif
 
     <div class="flex gap-4 mb-4">
-        <input type="text" wire:model.live="search" placeholder="Buscar título..." class="border p-1 rounded">
-        <select wire:model.live="status" class="border p-1 rounded">
+        <input type="text" wire:model.live="search" placeholder="Buscar título..." class="border p-1 rounded focus:outline-[#E2121E]">
+        <select wire:model.live="status" class="border p-1 rounded focus:ring-2 focus:ring-[#E2121E]">
             <option value="">Todos os status</option>
             <option value="Pendente">Pendente</option>
             <option value="Em andamento">Em andamento</option>
@@ -20,7 +24,7 @@
 
     <table class="w-full border-collapse border border-gray-300">
         <thead>
-            <tr>
+            <tr class="bg-gray-100">
                 <th class="border px-2 py-1">Título</th>
                 <th class="border px-2 py-1">Descrição</th>
                 <th class="border px-2 py-1">Prazo</th>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\TaskStatusEnum;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -24,8 +25,9 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
-        return view('tasks.create');
+        
+        $statuses = TaskStatusEnum::cases();
+        return view('tasks.create', compact('statuses'));
     }
 
     /**
@@ -62,7 +64,8 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         //
-        return view("tasks.edit", compact('task'));
+        $statuses = TaskStatusEnum::cases();
+        return view("tasks.edit", compact('task', 'statuses'));
     }
 
     /**

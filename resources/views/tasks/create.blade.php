@@ -11,7 +11,11 @@
                 <label for="title">Título</label>
                 <input class="w-full text-gray border-2 border-[E2121E] rounded p-2" class="w-full text-white border border-gray-300 rounded p-2" type=text name='title' id='title' value="{{old('title')}}" required ></input>
                 @error('title')
-                    <div class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
+                    <div
+                        x-data="{show: true}"
+                        x-init="setTimeout(() => show = false, 5000)"
+                        x-show="show"
+                        class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
                         <div>{{$message}}</div>
                     </div>
                 @enderror
@@ -33,9 +37,12 @@
                 <label for="status">Status</label>
         
                 <select class="w-full text-gray border-2 border-[E2121E] rounded p-2" name='status' id='status' required>
-                    <option value="Pendente">Pendente</option>
-                    <option value="Em andamento">Em andamento</option>
-                    <option value="Concluído">Concluído</option>
+                    @foreach ($statuses as $status)
+                        <option value="{{ $status->value }}" {{ old('status') == $status->value ? 'selected' : '' }}>
+                            {{ $status->labelText() }}
+                        </option>
+                        
+                    @endforeach
                 </select>
                 @error('status')
                     <div class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
